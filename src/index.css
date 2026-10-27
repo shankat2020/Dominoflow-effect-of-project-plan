@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #0c0f17;
+    color: #f1f5f9;
+    overflow-x: hidden;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Striped buffer cushions */
+.buffer-stripe-safe {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(16, 185, 129, 0.14),
+    rgba(16, 185, 129, 0.14) 8px,
+    rgba(16, 185, 129, 0.04) 8px,
+    rgba(16, 185, 129, 0.04) 16px
+  );
+}
+
+.buffer-stripe-warn {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(245, 158, 11, 0.18),
+    rgba(245, 158, 11, 0.18) 8px,
+    rgba(245, 158, 11, 0.05) 8px,
+    rgba(245, 158, 11, 0.05) 16px
+  );
+}
+
+.buffer-stripe-danger {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(239, 68, 68, 0.22),
+    rgba(239, 68, 68, 0.22) 8px,
+    rgba(239, 68, 68, 0.06) 8px,
+    rgba(239, 68, 68, 0.06) 16px
+  );
+}
+
+/* Custom scrollbars for timeline container */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.4);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.6);
+}

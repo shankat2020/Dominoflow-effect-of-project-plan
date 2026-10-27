@@ -1,0 +1,266 @@
+import { Swimlane, Task } from '../types';
+
+export const INITIAL_SWIMLANES: Swimlane[] = [
+  {
+    id: 'design',
+    name: 'Design & User Experience',
+    category: 'Product Design',
+    theme: {
+      bg: 'bg-violet-950/25',
+      border: 'border-violet-500/30',
+      accent: 'bg-violet-500',
+      light: 'bg-violet-500/15 text-violet-300 border-violet-500/30',
+      text: 'text-violet-400',
+      badge: 'bg-violet-500/20 text-violet-200 border-violet-500/40',
+      ring: 'focus:ring-violet-400',
+    },
+    iconName: 'palette',
+  },
+  {
+    id: 'backend',
+    name: 'Core API & Cloud Infra',
+    category: 'Backend',
+    theme: {
+      bg: 'bg-sky-950/25',
+      border: 'border-sky-500/30',
+      accent: 'bg-sky-500',
+      light: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
+      text: 'text-sky-400',
+      badge: 'bg-sky-500/20 text-sky-200 border-sky-500/40',
+      ring: 'focus:ring-sky-400',
+    },
+    iconName: 'server',
+  },
+  {
+    id: 'frontend',
+    name: 'Client Apps & Web Applet',
+    category: 'Frontend',
+    theme: {
+      bg: 'bg-emerald-950/25',
+      border: 'border-emerald-500/30',
+      accent: 'bg-emerald-500',
+      light: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
+      text: 'text-emerald-400',
+      badge: 'bg-emerald-500/20 text-emerald-200 border-emerald-500/40',
+      ring: 'focus:ring-emerald-400',
+    },
+    iconName: 'code',
+  },
+  {
+    id: 'qa',
+    name: 'Security & Quality Assurance',
+    category: 'QA / Security',
+    theme: {
+      bg: 'bg-amber-950/25',
+      border: 'border-amber-500/30',
+      accent: 'bg-amber-500',
+      light: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+      text: 'text-amber-400',
+      badge: 'bg-amber-500/20 text-amber-200 border-amber-500/40',
+      ring: 'focus:ring-amber-400',
+    },
+    iconName: 'shield-check',
+  },
+  {
+    id: 'gtm',
+    name: 'Go-To-Market & Operations',
+    category: 'GTM & Launch',
+    theme: {
+      bg: 'bg-rose-950/25',
+      border: 'border-rose-500/30',
+      accent: 'bg-rose-500',
+      light: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
+      text: 'text-rose-400',
+      badge: 'bg-rose-500/20 text-rose-200 border-rose-500/40',
+      ring: 'focus:ring-rose-400',
+    },
+    iconName: 'rocket',
+  },
+];
+
+export const INITIAL_TASKS: Task[] = [
+  {
+    id: 'task-1',
+    name: 'Design System & UX Flows',
+    swimlaneId: 'design',
+    duration: 6,
+    delay: 0,
+    dependsOn: [],
+    owner: {
+      name: 'Maya Lin',
+      role: 'Staff Product Designer',
+      avatar: 'ML',
+    },
+    description: 'Component tokens, accessibility audit, and interactive prototypes.',
+  },
+  {
+    id: 'task-2',
+    name: 'User Testing & Visual Polish',
+    swimlaneId: 'design',
+    duration: 4,
+    delay: 0,
+    dependsOn: ['task-1'],
+    owner: {
+      name: 'Alex Rivera',
+      role: 'UX Researcher',
+      avatar: 'AR',
+    },
+    description: '5 moderated customer tests and high-fidelity microinteraction tuning.',
+  },
+  {
+    id: 'task-3',
+    name: 'Distributed API & Cloud Sync',
+    swimlaneId: 'backend',
+    duration: 8,
+    delay: 0,
+    dependsOn: [],
+    owner: {
+      name: 'Dev Patel',
+      role: 'Infra Architect',
+      avatar: 'DP',
+    },
+    description: 'GraphQL subscriptions, database migrations, and auth tokens.',
+  },
+  {
+    id: 'task-4',
+    name: 'Interactive UI & State Engine',
+    swimlaneId: 'frontend',
+    duration: 7,
+    delay: 0,
+    dependsOn: ['task-3'],
+    owner: {
+      name: 'Sarah Chen',
+      role: 'Frontend Staff',
+      avatar: 'SC',
+    },
+    description: 'Client state hydration, optimistic rendering, and responsive swimlanes.',
+  },
+  {
+    id: 'task-5',
+    name: 'SOC2 Audit & Pen Testing',
+    swimlaneId: 'qa',
+    duration: 5,
+    delay: 0,
+    dependsOn: ['task-3'],
+    owner: {
+      name: 'Jordan Vance',
+      role: 'Security Lead',
+      avatar: 'JV',
+    },
+    description: 'Static analysis vulnerability scan, third-party pen test, and sign-off.',
+  },
+  {
+    id: 'task-6',
+    name: 'Cross-Device E2E Regression',
+    swimlaneId: 'qa',
+    duration: 4,
+    delay: 0,
+    dependsOn: ['task-4', 'task-5'],
+    owner: {
+      name: 'Elena Rostova',
+      role: 'QA Specialist',
+      avatar: 'ER',
+    },
+    description: 'Automated test suite across Web, iOS, Android, and performance benchmarks.',
+  },
+  {
+    id: 'task-7',
+    name: 'App Store Submission & Rollout',
+    swimlaneId: 'gtm',
+    duration: 5,
+    delay: 0,
+    dependsOn: ['task-2', 'task-6'],
+    owner: {
+      name: 'Marcus Brody',
+      role: 'Product Director',
+      avatar: 'MB',
+    },
+    description: 'Store metadata review, canary deployment pipeline, and press kit kickoff.',
+  },
+];
+
+export interface ScenarioPreset {
+  id: string;
+  name: string;
+  description: string;
+  badge: string;
+  delays: Record<string, number>;
+}
+
+export const SCENARIO_PRESETS: ScenarioPreset[] = [
+  {
+    id: 'baseline',
+    name: 'Pristine Baseline',
+    description: 'All tasks on schedule with 0 delays. Original buffers intact.',
+    badge: 'On Schedule',
+    delays: {
+      'task-1': 0,
+      'task-2': 0,
+      'task-3': 0,
+      'task-4': 0,
+      'task-5': 0,
+      'task-6': 0,
+      'task-7': 0,
+    },
+  },
+  {
+    id: 'absorbed-buffer',
+    name: 'Safe Design Iteration (+3d absorbed)',
+    description: 'Design polish takes +3 extra days. Buffer cushion absorbs it completely without shifting launch date!',
+    badge: 'Zero Slip · Safe',
+    delays: {
+      'task-1': 3,
+      'task-2': 0,
+      'task-3': 0,
+      'task-4': 0,
+      'task-5': 0,
+      'task-6': 0,
+      'task-7': 0,
+    },
+  },
+  {
+    id: 'security-hiccup',
+    name: 'Pen Test Re-Audit (+4d on QA)',
+    description: 'Security audit runs +4 days over. First 2 days eat the buffer cushion; remaining 2 days knock downstream E2E and launch!',
+    badge: 'Partial Cushion Knock',
+    delays: {
+      'task-1': 0,
+      'task-2': 0,
+      'task-3': 0,
+      'task-4': 0,
+      'task-5': 4,
+      'task-6': 0,
+      'task-7': 0,
+    },
+  },
+  {
+    id: 'backend-cascade',
+    name: 'Critical Path Delay (+4d on API)',
+    description: 'Core API delay immediately bumps Client UI, QA Regression, and Final Launch.',
+    badge: 'Domino Chain (+4d Slip)',
+    delays: {
+      'task-1': 0,
+      'task-2': 0,
+      'task-3': 4,
+      'task-4': 0,
+      'task-5': 0,
+      'task-6': 0,
+      'task-7': 0,
+    },
+  },
+  {
+    id: 'full-storm',
+    name: 'Full Domino Cascade (+8d Slip)',
+    description: 'Simultaneous delays across Design, Backend, and QA exhaust all safety buffers and push launch by 8 days.',
+    badge: 'Critical Launch Slip',
+    delays: {
+      'task-1': 5,
+      'task-2': 2,
+      'task-3': 3,
+      'task-4': 3,
+      'task-5': 4,
+      'task-6': 2,
+      'task-7': 0,
+    },
+  },
+];
